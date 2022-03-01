@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // https://jestjs.io/docs/troubleshooting
+      "name": "debug tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        //"--inspect-brk",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        //"--testPathPattern=test/ui.test.ts",
+        //"--testPathPattern=test/flag.test.ts",
+        // more tests
+        "--runInBand",
+        "--no-cache"
+      ],
+      "autoAttachChildProcesses": false, // to avoid "Debugger attached" to pollute test/ui.test.ts output
+      "disableOptimisticBPs": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**/*.js",
+      ]
+    }
+  ]
+}
