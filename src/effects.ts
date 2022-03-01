@@ -41,7 +41,9 @@ export class Exit {
 
   dryRun(): string {
     const { into, message, exitCode } = this.config;
-    const coloredExit = chalk.dim(`process exited with status ${exitCode} (${into})`);
+    const coloredExit = chalk.dim(
+      `process exited with status ${exitCode} (${into})`
+    );
     return `${message}\n\n${coloredExit}`;
   }
 

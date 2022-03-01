@@ -27,7 +27,7 @@ function withLevels(
   levels: AllColorOptions[],
   strategy: Strategy
 ): ColoredFunction {
-  const fn: ColorizerFunction = str => strategy(levels, str);
+  const fn: ColorizerFunction = (str) => strategy(levels, str);
   Object.assign(fn, generateColoredBody(fn, levels, strategy));
   return fn as any;
 }

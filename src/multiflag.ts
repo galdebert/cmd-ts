@@ -50,7 +50,7 @@ export function multiflag<Decoder extends From<boolean[], any>>(
       const options = findOption(nodes, {
         longNames: [config.long],
         shortNames: config.short ? [config.short] : [],
-      }).filter(x => !visitedNodes.has(x));
+      }).filter((x) => !visitedNodes.has(x));
 
       for (const option of options) {
         visitedNodes.add(option);

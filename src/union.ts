@@ -11,7 +11,7 @@ type Any<A = any> = FromFn<A, any> | From<A, any>;
 export function union<T1 extends Any, T2s extends Any<InputOf<T1>>>(
   ts: [T1, ...T2s[]],
   {
-    combineErrors = errors => errors.join('\n'),
+    combineErrors = (errors) => errors.join('\n'),
   }: {
     /**
      * Combine all the errors produced by the types.
@@ -20,7 +20,7 @@ export function union<T1 extends Any, T2s extends Any<InputOf<T1>>>(
     combineErrors?(errors: string[]): string;
   } = {}
 ): Type<InputOf<T1>, OutputOf<T1 | T2s>> {
-  const merged = Object.assign({}, ...ts.map(x => typeDef(x)));
+  const merged = Object.assign({}, ...ts.map((x) => typeDef(x)));
   return {
     ...merged,
     async from(input) {

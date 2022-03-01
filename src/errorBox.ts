@@ -27,7 +27,7 @@ function highlight(
 
   if (error.nodes.length === 0) return;
 
-  nodes.forEach(node => {
+  nodes.forEach((node) => {
     if (error.nodes.includes(node)) {
       foundError();
       return strings.push(chalk.red(node.raw));
@@ -89,8 +89,8 @@ export function errorBox(
   errorMessages.push('');
 
   withHighlight
-    .filter(x => x.highlighted)
-    .forEach(x => {
+    .filter((x) => x.highlighted)
+    .forEach((x) => {
       if (!x.highlighted) {
         throw new Error('WELP');
       }
@@ -107,7 +107,7 @@ export function errorBox(
       number++;
     });
 
-  const withNoHighlight = withHighlight.filter(x => !x.highlighted);
+  const withNoHighlight = withHighlight.filter((x) => !x.highlighted);
 
   if (number > 1) {
     if (withNoHighlight.length === 1) {
