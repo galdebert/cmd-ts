@@ -11,7 +11,7 @@ for (const [snapName, snapshot] of Object.entries(allSnapshots)) {
       .trim()
       .slice(1, -1)
       .split('\n')
-      .map(x => `  ${x}`)
+      .map((x) => `  ${x}`)
       .join('\n')
   );
   console.log();
