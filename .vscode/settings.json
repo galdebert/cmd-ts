@@ -1,0 +1,15 @@
+{
+  "editor.rulers": [80],
+
+  "files.exclude": {
+    "node_modules/": true,
+    "dist/": true
+  },
+
+  // typescript
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.tsdk": "./node_modules/typescript/lib", // use the ts version in node_modules instead of the vscode version
+
+  // eslint
+  "eslint.validate": ["javascript", "typescript"]
+}
