@@ -7,15 +7,16 @@
       "type": "node",
       "request": "launch",
       "runtimeArgs": [
-        //"--inspect-brk",
-        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        //"--inspect-brk", // https://jestjs.io/docs/troubleshooting say to use --inspect-brk but it does not seem necessary
+        "${workspaceFolder}/node_modules/jest/bin/jest.js",
         //"--testPathPattern=test/ui.test.ts",
-        //"--testPathPattern=test/flag.test.ts",
-        // more tests
+        "--testPathPattern=test/flag.test.ts",
         "--runInBand",
-        "--no-cache"
+        "--no-cache",
+        //"--watchAll=false"
       ],
-      "autoAttachChildProcesses": false, // to avoid "Debugger attached" to pollute test/ui.test.ts output
+      "cwd": "${workspaceFolder}",
+      "autoAttachChildProcesses": true, // false to avoid "Debugger attached" to pollute test/ui.test.ts output and make the snapshots test fail
       "disableOptimisticBPs": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
