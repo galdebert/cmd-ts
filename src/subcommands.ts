@@ -59,7 +59,8 @@ export function subcommands<
       if (cmd) {
         return cmd.cmdName;
       }
-      let errorMessage = `Not a valid subcommand name`;
+      const cmdNames = commands.map((x) => x.cmdName).join(', ');
+      let errorMessage = `Not a valid subcommand name. Available subcommands are: ${cmdNames}`;
 
       const closeOptions = didYouMean(
         str,
