@@ -37,9 +37,7 @@ test('dash in the middle of a word', () => {
 });
 
 test('welp', () => {
-  const argv = `scripts/ts-node src/example/app.ts cat /tmp/a --help`.split(
-    ' '
-  );
+  const argv = `scripts/ts-node src/example/app.ts cat /tmp/a --help`.split(' ');
   const tokens = tokenize(argv);
   const tree = parse(tokens, createRegisterOptions());
   expect(tree).toMatchInlineSnapshot(`

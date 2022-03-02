@@ -1,5 +1,4 @@
 import execa, { ExecaReturnValue } from 'execa';
-import path from 'path';
 
 export function app(
   scriptPath: string
@@ -7,8 +6,14 @@ export function app(
   return async (args) => {
     jest.setTimeout(10000);
     const result = await execa(
-      path.join(__dirname, '../scripts/ts-node'),
-      [scriptPath, ...args],
+      'node',
+      [
+        '--nolazy',
+        '-r',
+        'ts-node/register/transpile-only',
+        scriptPath,
+        ...args,
+      ],
       {
         all: true,
         reject: false,
